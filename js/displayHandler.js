@@ -15,7 +15,6 @@ const displayHandler = {
                 ${data.phone ? `<p>Phone: ${data.phone}</p>` : ''}
             </div>
             <div class="result-item">
-                <p><span class="result-label">Education:</span></p>
                 <p>Level: ${data.education}</p>
                 <p>Institution: ${data.institution}</p>
                 <p>Graduation Year: ${data.graduationYear}</p>

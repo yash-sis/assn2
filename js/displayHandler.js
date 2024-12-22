@@ -21,7 +21,6 @@ const displayHandler = {
             </div>
             ${data.experience || data.skills ? `
                 <div class="result-item">
-                    <p><span class="result-label">Professional Details:</span></p>
                     ${data.experience ? `<p>Experience: ${data.experience} years</p>` : ''}
                     ${data.skills ? `<p>Skills: ${data.skills}</p>` : ''}
                 </div>

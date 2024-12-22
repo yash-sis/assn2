@@ -1,14 +1,17 @@
-# Use the official PHP image with Apache
+# Use official PHP image with Apache
 FROM php:8.1-apache
 
-# Set the working directory in the container
+# Set the working directory inside the container
 WORKDIR /var/www/html
 
 # Copy the entire project into the container
 COPY . /var/www/html
 
-# Expose the default PHP server port
+# Install required PHP extensions (if needed, e.g., mysqli for MySQL support)
+RUN docker-php-ext-install mysqli
+
+# Expose the port (this is the port Render uses for PHP)
 EXPOSE 8080
 
-# Start the PHP built-in server on container launch
+# Start PHP built-in server (renders web requests)
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "."]

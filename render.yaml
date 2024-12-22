@@ -3,9 +3,5 @@ services:
     name: php-app
     env: docker
     dockerfilePath: Dockerfile
-    autoDeploy: true
     plan: free
     healthCheckPath: /
-    envVars:
-      - key: PORT
-        value: 8080

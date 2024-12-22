@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Registration</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/form.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Online Registration Form</h1>
+        </header>
+
+        <main>
+            <div id="errorMessages" class="error-messages" style="display:none;"></div>
+            <form id="registrationForm" class="registration-form" action="process.php" method="POST">
+                <div class="form-section">
+                    <h2>Personal Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter your phone number (10 digits)">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Educational Background</h2>
+                    
+                    <div class="form-group">
+                        <label for="education">Highest Education *</label>
+                        <select id="education" name="education" required>
+                            <option value="" disabled selected>Select Education Level</option>
+                            <option value="high_school">High School</option>
+                            <option value="bachelors">Bachelor's Degree</option>
+                            <option value="masters">Master's Degree</option>
+                            <option value="phd">Ph.D.</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="institution">Institution Name *</label>
+                        <input type="text" id="institution" name="institution" placeholder="Enter your institution name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graduationYear">Year of Graduation *</label>
+                        <input type="number" id="graduationYear" name="graduationYear" min="1950" max="2024" placeholder="Enter graduation year" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Professional Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="experience">Years of Experience</label>
+                        <input type="number" id="experience" name="experience" min="0" max="50" placeholder="Enter years of experience">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skills">Skills (comma-separated)</label>
+                        <input type="text" id="skills" name="skills" placeholder="Enter your skills">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Submit Registration</button>
+                    <button type="reset" class="btn-reset">Reset Form</button>
+                </div>
+            </form>
+
+            <div id="submissionResult" class="submission-result hidden">
+                <h2>Registration Details</h2>
+                <div id="resultContent"></div>
+                <button id="printButton" class="btn-print">Print Details</button>
+                <button id="newRegistration" class="btn-new">New Registration</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/validators.js"></script>
+    <script src="js/formHandler.js"></script>
+    <script src="js/displayHandler.js"></script>
+</body>
+</html>

@@ -1,14 +1,16 @@
 {
-  "name": "vite-starter",
+  "name": "portfolio-app",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "php -S 0.0.0.0:8000 -t .",
+    "build": "echo 'No build step needed for PHP project'",
+    "start": "php -S 0.0.0.0:8000 -t ."
+  },
+  "dependencies": {
+
   },
   "devDependencies": {
-    "vite": "^5.4.2"
+
   }
 }

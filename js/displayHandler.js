@@ -11,7 +11,6 @@ const displayHandler = {
                 <p><span class="result-label">Name:</span> ${data.firstName} ${data.lastName}</p>
             </div>
             <div class="result-item">
-                <p><span class="result-label">Contact:</span></p>
                 <p>Email: ${data.email}</p>
                 ${data.phone ? `<p>Phone: ${data.phone}</p>` : ''}
             </div>

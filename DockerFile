@@ -1,15 +1,23 @@
-# Use the official PHP image from Docker Hub
+# Use an official PHP runtime as a parent image
 FROM php:8.0-cli
 
 # Set the working directory
 WORKDIR /app
 
-# Copy the application files to the container
+# Install necessary PHP extensions, if any
+RUN apt-get update && apt-get install -y libzip-dev && docker-php-ext-install zip
+
+# Copy the current directory contents into the container at /app
 COPY . .
 
-# Install necessary PHP extensions if needed
-RUN apt-get update && apt-get install -y libzip-dev \
-  && docker-php-ext-install zip
+# Install Composer (if you need it for PHP dependencies)
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Run the PHP built-in server
+# Install dependencies (e.g., Composer packages)
+RUN composer install
+
+# Make port 8080 available to the world outside this container
+EXPOSE 8080
+
+# Run the PHP built-in server when the container starts
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "."]

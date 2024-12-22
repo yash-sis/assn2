@@ -1,7 +1,7 @@
 services:
   - type: web
     name: php-app
-    env: docker
-    dockerfilePath: Dockerfile
+    env: php
+    buildCommand: 'composer install'  # Or other build commands for PHP
+    startCommand: 'php -S 0.0.0.0:8080 -t public'  # Adjust if needed
     plan: free
-    healthCheckPath: /
